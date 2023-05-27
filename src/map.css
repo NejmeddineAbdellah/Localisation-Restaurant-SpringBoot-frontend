@@ -1,0 +1,12 @@
+.Map {
+  height: 80vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.map-container {
+  height: 100%;
+  width: 100%;
+}
