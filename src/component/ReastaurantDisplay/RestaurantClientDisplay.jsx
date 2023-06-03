@@ -23,40 +23,40 @@ const RestauDetails: React.FC = () => {
   };
 
   useEffect(() => {
-    axios.get("/api/villes/").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/villes/").then((response) => {
       setCities(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("/api/series/all").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/series/all").then((response) => {
       setSeries(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("/api/restaus/").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/restaus/").then((response) => {
       setRestaurants(response.data);
     });
   }, []);
 
   const handleCityChange = (value) => {
     setSelectedCityId(value);
-    axios.get(`/api/zones/ville/zones/${value}`).then((response) => {
+    axios.get(`https://local-restau-springboot-backend-production.up.railway.app/api/zones/ville/zones/${value}`).then((response) => {
       setZones(response.data);
     });
   };
 
   const handleZoneChange = (value) => {
     setSelectedZoneId(value);
-    axios.get(`/api/restaus/filter/${selectedCityId}/${value}`).then((response) => {
+    axios.get(`https://local-restau-springboot-backend-production.up.railway.app/api/restaus/filter/${selectedCityId}/${value}`).then((response) => {
       setRestaurants(response.data);
     });
   };
 
   const handleSerieChange = (value) => {
     setSelectedSerieId(value);
-    axios.get(`/api/restaus/filter2/${selectedCityId}/${selectedZoneId}/${value}`).then((response) => {
+    axios.get(`https://local-restau-springboot-backend-production.up.railway.app/api/restaus/filter2/${selectedCityId}/${selectedZoneId}/${value}`).then((response) => {
       setRestaurants(response.data);
     });
   };
