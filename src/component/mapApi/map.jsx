@@ -15,7 +15,7 @@ const GoogleMapComponent = ({ google }) => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`/api/restaus/restau/id/${id}`)
+    axios.get(`https://local-restau-springboot-backend-production.up.railway.app/api/restaus/restau/id/${id}`)
       .then(response => {
         const data = response.data;
   
