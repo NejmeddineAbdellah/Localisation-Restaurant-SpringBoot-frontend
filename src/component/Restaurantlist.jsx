@@ -97,7 +97,7 @@ const RestaurantList = () => {
   const handleVilleChange = (event) => {
     const villeNom = event.target.value;
     setSelectedVilleNom(villeNom);
-    axios.get(`/api/zones/ville/zones/${villeNom}`).then((response) => {
+    axios.get(`https://local-restau-springboot-backend-production.up.railway.app/api/zones/ville/zones/${villeNom}`).then((response) => {
       setZones(response.data);
     });
   };
@@ -105,7 +105,7 @@ const RestaurantList = () => {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this restaurant?")) {
-      axios.delete(`/api/restaus/delete`, {
+      axios.delete(`https://local-restau-springboot-backend-production.up.railway.app/api/restaus/delete`, {
         data: { id: id }
       }).then(() => {
         setRestaurants(Restaurants.filter((restaurant) => restaurant.id !== id));
@@ -113,13 +113,13 @@ const RestaurantList = () => {
     }
   };
   useEffect(() => {
-    axios.get("/api/villes/").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/villes/").then((response) => {
       setVilles(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("/api/series/all").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/series/all").then((response) => {
       setSeries(response.data);
     });
   }, []);
@@ -129,7 +129,7 @@ const RestaurantList = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("/api/restaus/save", {
+      .post("https://local-restau-springboot-backend-production.up.railway.app/api/restaus/save", {
         nom: nom,
         adress: adresse,
         rank: rank,
