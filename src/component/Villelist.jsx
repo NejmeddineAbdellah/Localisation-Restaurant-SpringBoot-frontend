@@ -48,7 +48,10 @@ const VillesList = () => {
 
   useEffect(() => {
     axios.get("/api/villes/").then((response) => {
-      setVilles(response.data.conversations);
+      setVilles(response.data);
+    }).catch((error) => {
+      console.error("Error fetching villes:", error);
+      message.error("Failed to fetch villes.");
     });
   }, []);
 
