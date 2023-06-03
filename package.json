@@ -2,7 +2,7 @@
   "name": "localrestau",
   "version": "0.1.0",
   "private": true,
-  "proxy": "local-restau-springboot-backend-production.up.railway.app/",
+  "proxy": "https:\\local-restau-springboot-backend-production.up.railway.app/",
   "dependencies": {
     "@ant-design/icons": "^5.1.2",
     "@emotion/react": "^11.11.0",
