@@ -40,7 +40,7 @@ const VillesList = () => {
   };
 
   const confirmDelete = (id) => {
-    axios.delete(`/api/villes/delete/id/${id}`).then(() => {
+    axios.delete(`https://local-restau-springboot-backend-production.up.railway.app/api/villes/delete/id/${id}`).then(() => {
       setVilles((villes) => villes.filter((ville) => ville.id !== id));
       message.success("Ville deleted successfully.");
     });
@@ -63,7 +63,7 @@ const VillesList = () => {
     if (selectedVille) {
       // Edit operation
       axios
-        .put(`/api/villes/update/id/${selectedVille.id}`, { nom })
+        .put(`https://local-restau-springboot-backend-production.up.railway.app/api/villes/update/id/${selectedVille.id}`, { nom })
         .then(() => {
           setVilles((villes) =>
             villes.map((ville) => {
@@ -82,7 +82,7 @@ const VillesList = () => {
         });
     } else {
       // Add operation
-      axios.post("/api/villes/save", { nom }).then((response) => {
+      axios.post("https://local-restau-springboot-backend-production.up.railway.app/api/villes/save", { nom }).then((response) => {
         const newVille = response.data;
         setVilles((villes) => [...villes, newVille]);
         message.success("Ville added successfully.");
