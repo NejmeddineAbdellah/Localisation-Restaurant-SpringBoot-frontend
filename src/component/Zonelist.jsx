@@ -41,7 +41,7 @@ const ZoneList = ({ villeId }) => {
 
     const fetchZones = () => {
         axios
-            .get("/api/zones/")
+            .get("https://local-restau-springboot-backend-production.up.railway.app/api/zones/")
             .then((response) => {
                 setZones(response.data);
             })
@@ -52,7 +52,7 @@ const ZoneList = ({ villeId }) => {
 
     const fetchCities = () => {
         axios
-            .get("/api/villes/")
+            .get("https://local-restau-springboot-backend-production.up.railway.app/api/villes/")
             .then((response) => {
                 setVilles(response.data);
             })
@@ -63,7 +63,7 @@ const ZoneList = ({ villeId }) => {
 
     const handleEdit = () => {
         axios
-            .put(`/api/zones/update/id/${selectedZone.id}`, {
+            .put(`https://local-restau-springboot-backend-production.up.railway.app/api/zones/update/id/${selectedZone.id}`, {
                 nom,
                 ville: {
                     id: selectedVilleId,
@@ -83,7 +83,7 @@ const ZoneList = ({ villeId }) => {
 
     const handleSubmit = () => {
         axios
-            .post("/api/zones/save", {
+            .post("https://local-restau-springboot-backend-production.up.railway.app/api/zones/save", {
                 nom,
                 ville: {
                     id: selectedVilleId,
@@ -103,7 +103,7 @@ const ZoneList = ({ villeId }) => {
     const handleDelete = (zoneId) => {
         if (window.confirm("Are you sure you want to delete this zone?")) {
             axios
-                .delete(`/api/zones/delete/id/${zoneId}`)
+                .delete(`https://local-restau-springboot-backend-production.up.railway.app/api/zones/delete/id/${zoneId}`)
                 .then(() => {
                     fetchZones();
                 })
