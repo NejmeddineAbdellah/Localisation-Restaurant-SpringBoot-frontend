@@ -48,7 +48,7 @@ const VillesList = () => {
 
   useEffect(() => {
     axios.get("/api/villes/").then((response) => {
-      setVilles(response.data);
+      setVilles(response.data.conversations);
     });
   }, []);
 
