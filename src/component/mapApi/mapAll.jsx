@@ -19,7 +19,7 @@ class GoogleMapComponent extends Component {
   }
 
   componentDidMount() {
-   axios.get('/api/restaus/')
+   axios.get('https://local-restau-springboot-backend-production.up.railway.app/api/restaus/')
      .then(response => {
        const data = response.data; 
  
