@@ -32,7 +32,7 @@ const ReastauUpdate = () => {
     
     const loadResto=async ()=>{
       
-      const result= await axios.get(`/api/restaus/restau/id/${id}`)
+      const result= await axios.get(`https://local-restau-springboot-backend-production.up.railway.app/api/restaus/restau/id/${id}`)
       setRestaurant(result.data)
       console.log(result.data)
 
@@ -66,19 +66,19 @@ const ReastauUpdate = () => {
   };
 
   useEffect(() => {
-    axios.get("/api/villes/").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/villes/").then((response) => {
       setVilles(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("/api/series/all").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/series/all").then((response) => {
       setSeries(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("/api/user/all").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/user/all").then((response) => {
       setSeries(response.data);
     });
   }, []);
@@ -86,14 +86,14 @@ const ReastauUpdate = () => {
   const handleVilleChange = (event) => {
     const villeNom = event.target.value;
     setSelectedVilleNom(villeNom);
-    axios.get(`/api/zones/ville/zones/${villeNom}`).then((response) => {
+    axios.get(`https://local-restau-springboot-backend-production.up.railway.app/api/zones/ville/zones/${villeNom}`).then((response) => {
       setZones(response.data);
     });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("/api/restaus/save", {
+    axios.post("https://local-restau-springboot-backend-production.up.railway.app/api/restaus/save", {
       nom : nom,
       adress:adresse,
       rank:rank,
