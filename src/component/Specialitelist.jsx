@@ -17,7 +17,7 @@ const SpecilaiteList = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("/api/specialite/all");
+      const response = await axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/specialite/all");
       setSpecialities(response.data);
     } catch (error) {
       console.error(error);
@@ -52,7 +52,7 @@ const SpecilaiteList = () => {
     const newName = window.prompt("Enter the new name for this specialite:");
     if (newName) {
       axios
-        .put(`/api/specialite/update/id/${id}`, { nom: newName })
+        .put(`https://local-restau-springboot-backend-production.up.railway.app/api/specialite/update/id/${id}`, { nom: newName })
         .then(() => {
           setSpecialities((prevSpecialities) =>
             prevSpecialities.map((specialite) => {
@@ -68,7 +68,7 @@ const SpecilaiteList = () => {
 
   const confirmDelete = async (id) => {
     try {
-      await axios.delete(`/api/specialite/delete/id/${id}`);
+      await axios.delete(`https://local-restau-springboot-backend-production.up.railway.app/api/specialite/delete/id/${id}`);
       setSpecialities((prevSpecialities) =>
         prevSpecialities.filter((specialite) => specialite.id !== id)
       );
@@ -82,7 +82,7 @@ const SpecilaiteList = () => {
     if (selectedSpecialite) {
       // Edit operation
       axios
-        .put(`/api/specialite/update/id/${selectedSpecialite.id}`, { nom })
+        .put(`https://local-restau-springboot-backend-production.up.railway.app/api/specialite/update/id/${selectedSpecialite.id}`, { nom })
         .then(() => {
           setSpecialities((prevSpecialities) =>
             prevSpecialities.map((specialite) => {
@@ -100,7 +100,7 @@ const SpecilaiteList = () => {
     } else {
       // Add operation
       axios
-        .post("/api/specialite/save", { nom })
+        .post("https://local-restau-springboot-backend-production.up.railway.app/api/specialite/save", { nom })
         .then((response) => {
           const newSpecialite = response.data;
           setSpecialities((prevSpecialities) => [
