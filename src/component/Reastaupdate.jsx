@@ -164,29 +164,7 @@ const ReastauUpdate = () => {
             <option value="5">5</option>
           </select>
         </div>
-        <br/> 
-        <div className="form-group">
-          <label htmlFor="jrouverture">Jours d'ouverture:</label>
-          <br/>
-          Du: <select nom="jour_open" id="jour_open" value={jour_open} onChange={handleJourOpenChange}>
-                <option value="Lundi">Lundi</option>
-                <option value="Mardi">Mardi</option>
-                <option value="Mercredi">Mercredi</option>
-                <option value="Jeudi">Jeudi</option>
-                <option value="Vendredi">Vendredi</option>
-                <option value="Samedi">Samedi</option>
-                <option value="Dimanche">Dimanche</option>
-            </select>
-          A : <select nom="jour_close" id="jour_close" value={jour_close} onChange={handleJourCloseChange}>
-                <option value="Lundi">Lundi</option>
-                <option value="Mardi">Mardi</option>
-                <option value="Mercredi">Mercredi</option>
-                <option value="Jeudi">Jeudi</option>
-                <option value="Vendredi">Vendredi</option>
-                <option value="Samedi">Samedi</option>
-                <option value="Dimanche">Dimanche</option>
-            </select>
-        </div>
+        <br/>
         <br/>
         <div className="form-group">
           <label htmlFor="villeId">Select a city:</label>
