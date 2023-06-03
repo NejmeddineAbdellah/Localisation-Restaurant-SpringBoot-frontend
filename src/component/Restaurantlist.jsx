@@ -34,7 +34,7 @@ const RestaurantList = () => {
 
 
   useEffect(() => {
-    axios.get("/api/restaus/").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/restaus/").then((response) => {
       setRestaurants(response.data);
     });
   }, []);
