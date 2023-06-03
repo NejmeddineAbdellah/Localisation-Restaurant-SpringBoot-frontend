@@ -71,19 +71,19 @@ const ReastauForm = () => {
   };
 
   useEffect(() => {
-    axios.get("/api/villes/").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/villes/").then((response) => {
       setVilles(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("/api/series/all").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/series/all").then((response) => {
       setSeries(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("/api/user/all").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/user/all").then((response) => {
       setSeries(response.data);
     });
   }, []);
@@ -98,7 +98,7 @@ const ReastauForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("/api/restaus/save", {
+    axios.post("https://local-restau-springboot-backend-production.up.railway.app/api/restaus/save", {
       nom : nom,
       adress:adresse,
       rank:rank,
