@@ -47,7 +47,7 @@ const VillesList = () => {
   };
 
   useEffect(() => {
-    axios.get("/api/villes/").then((response) => {
+    axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/villes/").then((response) => {
       setVilles(response.data);
     }).catch((error) => {
       console.error("Error fetching villes:", error);
