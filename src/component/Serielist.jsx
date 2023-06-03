@@ -18,7 +18,7 @@ const SerieList = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("/api/series/all");
+      const response = await axios.get("https://local-restau-springboot-backend-production.up.railway.app/api/series/all");
       setSeries(response.data);
       setLoading(false);
     } catch (error) {
@@ -53,7 +53,7 @@ const SerieList = () => {
 
   const confirmDelete = async (id) => {
     try {
-      await axios.delete(`/api/series/delete/id/${id}`);
+      await axios.delete(`https://local-restau-springboot-backend-production.up.railway.app/api/series/delete/id/${id}`);
       setSeries((prevSeries) => prevSeries.filter((serie) => serie.id !== id));
       message.success("Serie deleted successfully.");
     } catch (error) {
@@ -64,7 +64,7 @@ const SerieList = () => {
   const handleEdit = (id) => {
     const newName = window.prompt("Enter the new name for this serie:");
     if (newName) {
-      axios.put(`/api/series/update/id/${id}`, { nom: newName }).then(() => {
+      axios.put(`https://local-restau-springboot-backend-production.up.railway.app/api/series/update/id/${id}`, { nom: newName }).then(() => {
         setSeries((prevSeries) =>
           prevSeries.map((serie) => {
             if (serie.id === id) {
@@ -82,7 +82,7 @@ const SerieList = () => {
     if (selectedSerie) {
       // Edit operation
       axios
-        .put(`/api/series/update/id/${selectedSerie.id}`, { nom })
+        .put(`https://local-restau-springboot-backend-production.up.railway.app/api/series/update/id/${selectedSerie.id}`, { nom })
         .then(() => {
           setSeries((prevSeries) =>
             prevSeries.map((serie) => {
@@ -96,7 +96,7 @@ const SerieList = () => {
         });
     } else {
       // Add operation
-      axios.post("/api/series/save", { nom }).then((response) => {
+      axios.post("https://local-restau-springboot-backend-production.up.railway.app/api/series/save", { nom }).then((response) => {
         const newSerie = response.data;
         setSeries((prevSeries) => [...prevSeries, newSerie]);
         message.success("Serie added successfully.");
